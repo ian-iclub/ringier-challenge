@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function index(): Response
     {
-        $products = Product::all();
+        $products = Product::with(['currency', 'category'])->get();
 
         return Inertia::render('Products/Index', ['products' => $products]);
     }
@@ -105,7 +105,7 @@ class ProductController extends Controller
     public function show(Product $product): Response
     {
         return Inertia::render('Products/Show', [
-            'product' => $product
+            'product' => $product->load(['currency', 'category'])
         ]);
     }
 

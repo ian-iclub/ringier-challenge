@@ -1,6 +1,9 @@
 <script setup>
-    // import { Head, Link, router } from '@inertiajs/vue3';
 
+    const emit = defineEmits(['search'])
+    function getSearch(event){
+        emit('search', event.target.value)
+    }
 </script>
 
 <template>
@@ -48,7 +51,7 @@
                 </svg>
             </span>
 
-                <input class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" type="text" placeholder="Search">
+                <input class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" type="text" placeholder="Search" @input="getSearch">
             </div>
         </div>
     </header>

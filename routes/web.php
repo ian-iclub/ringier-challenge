@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -14,18 +15,29 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+# ----------------------------------------------------------------------------------------------------------------------
+# GUEST ROUTES
+# ----------------------------------------------------------------------------------------------------------------------
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+# Index page
+Route::get('/', [RouteController::class, 'index'])->name('index');
+
+# List products
+Route::resource('products', ProductController::class)->only([
+    'index', 'show'
+]);
+
+# ----------------------------------------------------------------------------------------------------------------------
+# PROTECTED ROUTES
+# ----------------------------------------------------------------------------------------------------------------------
+Route::group(['middleware' => 'auth'], function (){
+
+    # My dashboard
+    Route::get('/dashboard', [RouteController::class, 'dashboard'])->name('dashboard');
+
+    # Manage products
+    Route::resource('products', ProductController::class)->except([
+        'index', 'show'
     ]);
-});
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
 });

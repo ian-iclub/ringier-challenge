@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\Currency;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +16,8 @@ class CurrencySeeder extends Seeder
      */
     public function run()
     {
-        //
+        Currency::factory()->create([
+            'name' => 'ZAR'
+        ]);
     }
 }

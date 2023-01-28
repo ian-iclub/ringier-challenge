@@ -2,16 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
-use App\Models\Product;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
-class ProductSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     use WithFaker;
+
     /**
      * Run the database seeds.
      *
@@ -19,6 +18,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        Product::factory(20)->create();
+        User::factory(5)->create();
     }
 }

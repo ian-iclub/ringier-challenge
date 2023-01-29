@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('description');
-            $table->dateTime('date_online');
-            $table->dateTime('date_offline');
+            $table->dateTime('date_online')->nullable();
+            $table->dateTime('date_offline')->nullable();
             $table->float('price');
 
             $table->timestamps();

@@ -104,8 +104,13 @@ class ProductController extends Controller
      */
     public function show(Product $product): Response
     {
+        $category_products = $product->category->products->take(4)->each(function ($product){
+            return $product->currency;
+        });
+
         return Inertia::render('Products/Show', [
-            'product' => $product->load(['currency', 'category'])
+            'product' => $product->load(['currency', 'category', 'user']),
+            'category_products' => $category_products
         ]);
     }
 

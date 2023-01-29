@@ -1,7 +1,6 @@
 <script setup>
     import { Head } from '@inertiajs/vue3';
     import Navbar from "@/Components/Navbar.vue";
-    // import Footer from "@/Components/Footer.vue";
 
     defineProps({
         title: String,
@@ -24,7 +23,5 @@
         <main class="my-8">
             <slot  />
         </main>
-
-<!--        <Footer />-->
     </div>
 </template>

@@ -2,6 +2,7 @@
     import { Link } from '@inertiajs/vue3';
     import BaseLayout from "@/Layouts/BaseLayout.vue";
     import ProductCard from "@/Components/ProductCard.vue";
+    import moment from 'moment';
 
     defineProps({
         product: {
@@ -27,6 +28,7 @@
                 <div class="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2">
                     <h3 class="text-gray-700 normal-case font-bold text-lg">{{ product.title }}</h3>
                     <span class="text-gray-500 mt-3">{{ product.currency.name }} {{  product.price.toLocaleString() }}</span>
+                    <h6 class="mt-4 text-sm">Date Posted: {{ moment(product.date_online).format('Do MMMM YYYY') }}</h6>
 
                     <hr class="my-3">
                     <div class="mt-2">

@@ -96,7 +96,10 @@ class ProductController extends Controller
         {
             Log::error($exception);
 
-            return redirect()->back()->with('error', 'Error saving product, kindly try again');
+            # Set flash message
+            $this->flash('danger', 'Error saving product, kindly try again');
+
+            return redirect()->back();
         }
     }
 
@@ -156,13 +159,17 @@ class ProductController extends Controller
         {
             $product->delete();
 
-            return redirect()->route('products.index')->with('success', 'Product deleted successfully');
+            $this->flash('success', 'Product deleted successfully');
+
+            return redirect()->route('products.index');
         }
         catch (Exception $exception)
         {
             Log::error($exception);
 
-            return redirect()->back()->with('error', 'Error deleting product, kindly try again');
+            $this->flash('danger', 'Error deleting product, kindly try again');
+
+            return redirect()->back();
         }
     }
 }

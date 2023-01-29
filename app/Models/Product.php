@@ -23,6 +23,16 @@ class Product extends Model
     ];
 
     /**
+     * Redefine route model binding
+     *
+     * @return string
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    /**
      * Relationship to users table
      *
      * @return BelongsTo

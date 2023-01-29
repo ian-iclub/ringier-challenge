@@ -59,8 +59,7 @@ class ProductController extends Controller
             'title' => $request->input('title'),
             'slug' => Str::slug($request->input('title')),
             'description' => $request->input('description'),
-            'date_online' => $request->input('date_online'),
-            'date_offline' => $request->input('date_offline'),
+            'date_online' => now(),
             'price' => $request->input('price'),
         ];
 
@@ -86,7 +85,12 @@ class ProductController extends Controller
             # Save model
             $product->save();
 
-            return redirect()->route('products.index')->with('success', 'Product saved successfully');
+            $product->addMedia($request->file('image'))->toMediaCollection();
+
+            # Set flash message
+            $this->flash('success', 'Product saved successfully');
+
+            return redirect()->route('products.index');
         }
         catch (Exception $exception)
         {

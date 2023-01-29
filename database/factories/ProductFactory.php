@@ -23,7 +23,7 @@ class ProductFactory extends Factory
             'description' => fake()->sentence(10),
             'date_online' => fake()->dateTime,
             'date_offline' => fake()->dateTime,
-            'price' => fake()->numberBetween(1, 3000),
+            'price' => fake()->numberBetween(1, 300000),
             'user_id' => fake()->numberBetween(1,4),
             'category_id' => fake()->numberBetween(1,4),
             'currency_id' => 1

@@ -24,9 +24,18 @@ class ProductController extends Controller
      */
     public function index(): Response
     {
-        $products = Product::with(['currency', 'category', 'media'])->orderBy('created_at', 'desc')->get();
+        $products = Product::query();
 
-        return Inertia::render('Products/Index', ['products' => $products]);
+        if (request()->has('category'))
+        {
+            $products->where('category_id', request()->get('category'));
+        }
+
+        $products->with(['currency', 'category', 'media'])->orderBy('created_at', 'desc')->get();
+
+        return Inertia::render('Products/Index', [
+            'products' => $products
+        ]);
     }
 
     /**
@@ -111,10 +120,6 @@ class ProductController extends Controller
      */
     public function show(Product $product): Response
     {
-//        $category_products = $product->category->products->take(4)->each(function ($product){
-//            return $product->load(['currency', 'category', 'media']);
-//        });
-
         $category_products = $product->category->products()->with(['currency', 'category', 'media'])->take(4)->get();
 
         return Inertia::render('Products/Show', [

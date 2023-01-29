@@ -1,8 +1,9 @@
 <script setup>
     import {computed, ref} from "vue";
+    import { Link } from '@inertiajs/vue3';
     import BaseLayout from "@/Layouts/BaseLayout.vue";
     import Card from "@/Components/Card.vue";
-    import ProductListing from "../Components/ProductListing.vue";
+    import ProductListing from "@/Components/ProductListing.vue";
 
     const searchResult = ref('');
 
@@ -47,7 +48,9 @@
                                 {{ category.name }}
                             </template>
                             <template #single>
-                                Filter
+                                <Link :href="route('products.index', {'category' : category.id})">
+                                    View All
+                                </Link>
                             </template>
                         </Card>
                     </div>

@@ -2,6 +2,7 @@
     import { ref } from "vue";
     import BaseLayout from "@/Layouts/BaseLayout.vue";
     import ProductListing from "@/Components/ProductListing.vue";
+    import Banner from "@/Components/Banner.vue";
 
     const searchResult = ref('');
 
@@ -23,6 +24,7 @@
 </script>
 
 <template>
+    <Banner />
     <BaseLayout title="Index" @search="getSearch">
         <div class="container mx-auto px-6">
 

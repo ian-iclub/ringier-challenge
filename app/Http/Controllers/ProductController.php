@@ -7,9 +7,9 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Currency;
 use App\Models\Product;
-use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -111,12 +111,14 @@ class ProductController extends Controller
      */
     public function show(Product $product): Response
     {
-        $category_products = $product->category->products->take(4)->each(function ($product){
-            return $product->currency;
-        });
+//        $category_products = $product->category->products->take(4)->each(function ($product){
+//            return $product->load(['currency', 'category', 'media']);
+//        });
+
+        $category_products = $product->category->products()->with(['currency', 'category', 'media'])->take(4)->get();
 
         return Inertia::render('Products/Show', [
-            'product' => $product->load(['currency', 'category', 'user']),
+            'product' => $product->load(['currency', 'category', 'user', 'media']),
             'category_products' => $category_products
         ]);
     }

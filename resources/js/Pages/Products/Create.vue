@@ -35,7 +35,7 @@
 </script>
 
 <template>
-    <Banner></Banner>
+    <Banner />
     <BaseLayout title="Create">
         <div class="container mx-auto px-6">
 

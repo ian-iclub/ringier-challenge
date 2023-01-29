@@ -16,7 +16,7 @@ class RouteController extends Controller
      */
     public function index(): Response
     {
-        $products = Product::with(['currency', 'category'])->latest()->take(8)->get();
+        $products = Product::with(['currency', 'category', 'media'])->latest()->take(8)->get();
 
         $categories = Category::all();
 

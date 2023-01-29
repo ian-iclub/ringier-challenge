@@ -23,9 +23,11 @@ use Inertia\Inertia;
 Route::get('/', [RouteController::class, 'index'])->name('index');
 
 # List products
-Route::resource('products', ProductController::class)->only([
-    'index', 'show'
-]);
+//Route::resource('products', ProductController::class)->only([
+//    'index', 'show'
+//]);
+
+Route::resource('products', ProductController::class);
 
 # ----------------------------------------------------------------------------------------------------------------------
 # PROTECTED ROUTES
@@ -35,9 +37,9 @@ Route::group(['middleware' => 'auth'], function (){
     # My dashboard
     Route::get('/dashboard', [RouteController::class, 'dashboard'])->name('dashboard');
 
-    # Manage products
-    Route::resource('products', ProductController::class)->except([
-        'index', 'show'
-    ]);
+//    # Manage products
+//    Route::resource('products', ProductController::class)->except([
+//        'index', 'show'
+//    ]);
 
 });

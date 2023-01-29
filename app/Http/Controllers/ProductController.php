@@ -7,9 +7,9 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Currency;
 use App\Models\Product;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function index(): Response
     {
-        $products = Product::with(['currency', 'category'])->get();
+        $products = Product::with(['currency', 'category', 'media'])->orderBy('created_at', 'desc')->get();
 
         return Inertia::render('Products/Index', ['products' => $products]);
     }

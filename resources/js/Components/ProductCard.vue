@@ -1,5 +1,19 @@
+<script setup>
+    import {computed} from "vue";
+
+    const props = defineProps({
+        backurl: {
+            type: String,
+        }
+    })
+
+    const backgroundUrl = computed(() =>{
+        return `background-image : url(${props.backurl})`
+    })
+</script>
+
 <template>
-    <div class="flex items-end justify-end h-56 w-full bg-cover" style="background-image: url('https://images.unsplash.com/photo-1577655197620-704858b270ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=144')">
+    <div class="flex items-end justify-end h-56 w-full bg-cover" :style="backgroundUrl">
         <button class="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
             <slot name="single" />
         </button>

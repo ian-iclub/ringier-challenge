@@ -17,7 +17,7 @@ class CurrencySeeder extends Seeder
     public function run()
     {
         Currency::factory()->create([
-            'name' => 'ZAR'
+            'name' => 'KES'
         ]);
     }
 }

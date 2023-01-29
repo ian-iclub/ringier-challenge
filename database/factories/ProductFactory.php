@@ -15,11 +15,11 @@ class ProductFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'title' => fake()->sentence(3),
-            'slug' => Str::slug(fake()->sentence(4)),
+            'slug' => Str::slug(fake()->sentence(3)),
             'description' => fake()->sentence(10),
             'date_online' => fake()->dateTime,
             'date_offline' => fake()->dateTime,

@@ -7,10 +7,6 @@
     const searchResult = ref('');
 
     const props = defineProps({
-        categories: {
-            type: Array,
-            default: () => [],
-        },
         products: {
             type: Array,
             default: () => [],
@@ -25,7 +21,7 @@
 
 <template>
     <Banner />
-    <BaseLayout title="Index" @search="getSearch">
+    <BaseLayout title="Products" @search="getSearch">
         <div class="container mx-auto px-6">
 
             <!-- Products -->

@@ -31,7 +31,8 @@ class ProductController extends Controller
             $products->where('category_id', request()->get('category'));
         }
 
-        $products->with(['currency', 'category', 'media'])->orderBy('created_at', 'desc')->get();
+        // TODO: Check why '->get()' is not returning a collection
+        $products = collect($products->with(['currency', 'category', 'media'])->orderBy('created_at', 'desc')->get());
 
         return Inertia::render('Products/Index', [
             'products' => $products

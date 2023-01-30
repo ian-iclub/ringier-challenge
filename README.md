@@ -38,23 +38,31 @@ DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
 ```
-6. Install and build the Vue.js dependencies:
+
+6. Link storage
+```bash
+   php artisan storage:link
+```
+
+7. Install and build the Vue.js dependencies:
 
 ```bash
    npm install && npm run build
 ```
 
-7. Migrate the database and seed test data:
+8. Migrate the database and seed test data:
 
 ```bash
    php artisan migrate:fresh --seed
 ```
 
-8. Start the server and open the url provided on your browser using the command:
+9. Start the server and open the url provided on your browser using the command:
 
 ```bash
    php artisan serve
 ```
+
+10. Update the `APP_URL` value in the `.env` to include the port assigned
 
 ## Testing
 

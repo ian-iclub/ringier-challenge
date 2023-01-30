@@ -25,7 +25,7 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'image' => 'required',
-            'title' => 'required',
+            'title' => 'required|unique:products',
             'description' => 'required',
             'price' => 'required',
             'currency' => 'required',

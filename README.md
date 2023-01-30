@@ -87,6 +87,6 @@ This package comes with inbuilt helper functions to aid in media management task
 
 - Products/Listings seeded do not have individual images but use the image of the category they belong in. However, listings created by the user with an image will have that image displayed
 
-- All seeded users use the password 123456789 for their login credentials.
+- All seeded users use the password `123456789` for their login credentials.
 
 - I learnt that Tailwind 3 changed the `purge` option to `content` in `tailwind.config.ts` and therefore I believe that with the keyword still present, PurgeCSS is still in use. 

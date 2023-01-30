@@ -56,6 +56,16 @@ DB_PASSWORD=
    php artisan serve
 ```
 
+## Testing
+
+To run tests use the command: 
+
+```bash
+   php artisan test --filter ProductsTest
+```
+
+The filter has been added to specifically run the tests I added. The project does have other tests that came inbuilt with Jetstream and these have not been edited and therefore may fail.
+
 ## Resources
 
 Here are some of the useful resources used:
@@ -76,3 +86,5 @@ This package comes with inbuilt helper functions to aid in media management task
 ## Extra Information
 
 - Products/Listings seeded do not have individual images but use the image of the category they belong in. However, listings created by the user with an image will have that image displayed
+
+- All seeded users use the password 123456789 for their login credentials.

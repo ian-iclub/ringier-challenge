@@ -17,9 +17,11 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $title = fake()->sentence(3);
+
         return [
-            'title' => fake()->sentence(3),
-            'slug' => Str::slug(fake()->sentence(3)),
+            'title' => $title,
+            'slug' => Str::slug($title),
             'description' => fake()->sentence(10),
             'date_online' => fake()->dateTime,
             'date_offline' => fake()->dateTime,

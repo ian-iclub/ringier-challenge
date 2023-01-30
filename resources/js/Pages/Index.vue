@@ -41,7 +41,7 @@
             <!-- Categories -->
             <div class="mt-4">
                 <h3 class="text-gray-600 text-2xl font-medium">Categories</h3>
-                <div class="grid gap-6 grid-cols-2 mt-6">
+                <div class="grid gap-6 lg:grid-cols-2 sm:grid-cols-1 mt-6">
                     <div v-for="category in filteredCategories" :key="category.id"  class="w-full mx-auto h-64 rounded-md overflow-hidden bg-cover bg-center" :style='getBackgroundImageCategory(category)'>
                         <Card>
                             <template #name>

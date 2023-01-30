@@ -1,4 +1,4 @@
-# Ringier Technincal Challenge
+# Ringier Technical Challenge
 
 ## Introduction
 
@@ -74,7 +74,7 @@ Here are some of the useful resources used:
 
 This template helped me create the UI faster allowing me to focus on the functionality required. The use of a template was also quite helpful since this was my first time working with Vue.js
 
-- [Laravel Jetsream](https://jetstream.laravel.com/2.x/introduction.html), specifically the [Inertia](https://jetstream.laravel.com/2.x/introduction.html#inertia-vue) stack
+- [Laravel Jetstream](https://jetstream.laravel.com/2.x/introduction.html), specifically the [Inertia](https://jetstream.laravel.com/2.x/introduction.html#inertia-vue) stack
 
 The Inertia stack not only provides an auth scaffold which speeds up building authentication logic, but it comes with many reusable components that can be extended to the rest of your app.
 

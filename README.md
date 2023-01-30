@@ -73,3 +73,6 @@ The Inertia stack not only provides an auth scaffold which speeds up building au
 This package comes with inbuilt helper functions to aid in media management tasks such as image upload, storage folder management and linking/unlinking media to various models.
 
 
+## Extra Information
+
+- Products/Listings seeded do not have individual images but use the image of the category they belong in. However, listings created by the user with an image will have that image displayed

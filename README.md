@@ -62,7 +62,7 @@ DB_PASSWORD=
    php artisan serve
 ```
 
-10. Update the `APP_URL` value in the `.env` to include the port assigned
+10. Update the `APP_URL` value in the `.env` file to include the port assigned from the url provided from the above step.
 
 ## Testing
 

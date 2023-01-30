@@ -24,7 +24,6 @@ class ProductFactory extends Factory
             'slug' => Str::slug($title),
             'description' => fake()->sentence(10),
             'date_online' => fake()->dateTime,
-            'date_offline' => fake()->dateTime,
             'price' => fake()->numberBetween(1, 300000),
             'user_id' => fake()->numberBetween(1,4),
             'category_id' => fake()->numberBetween(1,4),

@@ -64,4 +64,4 @@ COPY .env.example .env
 RUN npm install && npm run prod
 
 # Start server
-CMD php8 artisan octane:start --host 0.0.0.0 --port 8080
+CMD php8 artisan serve --host 0.0.0.0 --port 8080
